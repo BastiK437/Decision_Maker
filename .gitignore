@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+# nodejs
+node_modules
+*.json
+
 # Log file
 *.log
 

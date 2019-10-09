@@ -28,11 +28,13 @@ client.on('message', message => {
 	const name = message.author;
 
 	if (message.content === '!DM') {
-		const random = getRandomInt(2);
+		const random = getRandomInt(4);
 		if (random === 0) {
 			message.channel.send ('Geh ins Bett ' + name + '!');
-		} else if (random === 1) {
-			message.channel.send('Spiel noch eine Runde ' + name + '!');
+		} else if (random === 1 || random === 2) {
+			message.channel.send('Zock noch eine Runde ' + name + '!');
+    } else if (random === 3) {
+      message.channel.send('Geh ins Bett und wixx dir noch einen ' + name + '!');
 		} else {
 			message.channel.send('error');
 		}

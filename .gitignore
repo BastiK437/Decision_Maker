@@ -3,7 +3,6 @@
 
 # nodejs
 node_modules
-*.json
 
 # Log file
 *.log

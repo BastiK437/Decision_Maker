@@ -2,7 +2,7 @@
 *.class
 
 # nodejs
-node_modules
+#node_modules
 
 # Log file
 *.log

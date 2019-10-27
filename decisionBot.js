@@ -36,16 +36,16 @@ client.on('message', message => {
 	// 0-23
 	const hours = date.getHours();
 	
-	const timeFac = 0;
-	const weekFac = 0;
-	const randomFac = 0;
+	var timeFac = 0.0;
+	var weekFac = 0.0;
+	var randomFac = 0.0;
 
 	if(day <= 4) {
 		// during the week
 		weekFac = 1;
 	}else {
 		// weekend
-		weekFac = 0.3;
+		weekFac = 0.5;
 	}
 
 	switch(hours){
@@ -57,18 +57,18 @@ client.on('message', message => {
 			timeFac = 0.2;
 			break;
 		case 0:
-			timeFac = 0.3;
-			break;
-		case 1: 
 			timeFac = 0.4;
 			break;
+		case 1: 
+			timeFac = 0.5;
+			break;
 		case 2: 
-			timeFac = 0.45;
+			timeFac = 0.6;
 			break;
 		// 3 till 10 o'clock fac = 0.5
 		case 3:
 		case 10:
-			timeFac = 0.5;
+			timeFac = 0.7;
 			break;
 		// 11 till 21 o'clock don't go into bed
 		case 11:
@@ -78,11 +78,38 @@ client.on('message', message => {
 	}
 	randomFac = timeFac + weekFac;
 
-	if (message.content === '!DM') {
-		const random = getRandomInt(100) * randomFac;
-		if (random >= 50) {	// go to bed
-			message.channel.send('Geh ins Bett ' + name + '!');
-		} else if (random < 50) { // stay online
-			message.channel.send('Zock noch eine Runde ' + name + '!');
-    } 
+	console.log(randomFac);
+	var random = getRandomInt(100) * randomFac;
+
+	console.log(random);
+
+	switch(message.content) {
+		case '!DM bett':
+			if (random >= 50) {	// go to bed
+				message.channel.send('Geh ins Bett ' + name + '!');
+			} else if (random < 50) { // stay online
+				message.channel.send('Zock noch eine Runde ' + name + '!');
+			}
+			break;
+		case '!DM bier':
+			if (random >= 50) {	// drink one more
+				message.channel.send('Trink noch ein Bier ' + name + '!');
+			} else if (random < 50) { // stop drinking
+				message.channel.send('Trink kein Bier mehr ' + name + '!');
+			}
+			break;
+	}
+	// if (message.content === '!DM bett') {
+	// 	if (random >= 50) {	// go to bed
+	// 		message.channel.send('Geh ins Bett ' + name + '!');w
+	// 	} else if (random < 50) { // stay online
+	// 		message.channel.send('Zock noch eine Runde ' + name + '!');
+	// 	}
+    // } else if(message.content === '!DM bier') {
+	// 	if (random >= 50) {	// drink one more
+	// 		message.channel.send('Trink noch ein Bier ' + name + '!');
+	// 	} else if (random < 50) { // stop drinking
+	// 		message.channel.send('Trink kein Bier mehr ' + name + '!');
+	// 	}
+	// }
 });

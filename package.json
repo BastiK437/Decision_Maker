@@ -1,16 +1,8 @@
 {
-  "name": "decision_maker",
+  "name": "Decision_Maker",
   "version": "1.0.0",
-  "description": "Discord Bot for decisions",
+  "description": "Discord Bot, keep playing or go to bed decision helper",
   "main": "decisionBot.js",
-  "dependencies": {
-    "bufferutil": "^4.0.1",
-    "discord.js": "^11.5.1",
-    "erlpack": "github:discordapp/erlpack",
-    "node-gyp": "^6.0.0",
-    "rebuild": "^0.1.2"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,10 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/BastianKrammer/Decision_Maker.git"
   },
-  "author": "Bastian Krammer",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BastianKrammer/Decision_Maker/issues"
   },
-  "homepage": "https://github.com/BastianKrammer/Decision_Maker#readme"
+  "homepage": "https://github.com/BastianKrammer/Decision_Maker#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
 }

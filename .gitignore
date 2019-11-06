@@ -3,6 +3,8 @@
 
 # nodejs
 node_modules
+package.json
+package-lock.json
 
 # Log file
 *.log

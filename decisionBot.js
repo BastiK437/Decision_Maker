@@ -24,6 +24,7 @@ client.login(token);
 client.on('message', message => {
 	// console.log(message.content);
 
+
 	// const str = message.content;
 	// const pos = str.search('!DM');
     

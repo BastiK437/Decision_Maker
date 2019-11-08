@@ -14,11 +14,12 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+const token = process.argv[2];
 // login to Discord with your app's token
-const fs = require('fs');
-const textByLine = fs.readFileSync('token').toString();
+//const fs = require('fs');
+//const token = fs.readFileSync("token").toString();
 
-client.login(textByLine);
+client.login(token);
 
 client.on('message', message => {
 	// console.log(message.content);

@@ -79,8 +79,9 @@ client.on('message', message => {
 			case 2: 
 				timeFac = 0.6;
 				break;
+		}
 	}
-	
+
 	randomFac = timeFac + weekFac;
 	
 	var random = getRandomInt(100) * randomFac;

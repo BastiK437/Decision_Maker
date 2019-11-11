@@ -57,35 +57,30 @@ client.on('message', message => {
 		weekFac = 0.3;
 	}
 
-	switch(hours){
-		// 22 till 3 o'clock increase fac
-		case 22:
-			timeFac = 0.1;
-			break;
-		case 23: 
-			timeFac = 0.2;
-			break;
-		case 0:
-			timeFac = 0.4;
-			break;
-		case 1: 
-			timeFac = 0.5;
-			break;
-		case 2: 
-			timeFac = 0.6;
-			break;
-		// 3 till 10 o'clock fac = 0.7
-		case 3:
-		case 10:
-			timeFac = 0.7;
-			break;
-		// 11 till 21 o'clock don't go into bed or stop drinking
-		case 11:
-		case 19:
-		case 21:	
-			timeFac = -2;
-			break;
+	if( hours >=3 && hours <= 10 ) {
+		timeFac = 0.7;
+	}else if( hours >= 11 && hours <= 21 ) {
+		timeFac = -2;
+	}else {
+		switch(hours){
+			// 22 till 3 o'clock increase fac
+			case 22:
+				timeFac = 0.1;
+				break;
+			case 23: 
+				timeFac = 0.2;
+				break;
+			case 0:
+				timeFac = 0.4;
+				break;
+			case 1: 
+				timeFac = 0.5;
+				break;
+			case 2: 
+				timeFac = 0.6;
+				break;
 	}
+	
 	randomFac = timeFac + weekFac;
 	
 	var random = getRandomInt(100) * randomFac;

@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // DEBUG modus
-const DEBUG = true;
+const DEBUG = false;
 
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
@@ -103,7 +103,7 @@ client.on('message', message => {
 				message.channel.send('Zock noch eine Runde ' + name + '!');
 			}
 			break;
-		case '!DM Bett':
+		case '!DM Bier':
 		case '!DM bier':
 			if (random >= 50) {	// stop drinking
 				message.channel.send('Trink kein Bier mehr ' + name + '!');

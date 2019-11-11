@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // DEBUG modus
-const DEBUG = false;
+const DEBUG = true;
 
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));

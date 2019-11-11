@@ -81,6 +81,7 @@ client.on('message', message => {
 			break;
 		// 11 till 21 o'clock don't go into bed or stop drinking
 		case 11:
+		case 19:
 		case 21:	
 			timeFac = -2;
 			break;

@@ -4,6 +4,9 @@ const Discord = require('discord.js');
 // create a new Discord client
 const client = new Discord.Client();
 
+// DEBUG modus
+const DEBUG = false;
+
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
@@ -14,22 +17,21 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+// Get token from console input
 const token = process.argv[2];
-// login to Discord with your app's token
+
+////////////////////////////////////////////////////////////////////
+// login to Discord with your app's token || Error on raspberry pi
 //const fs = require('fs');
 //const token = fs.readFileSync("token").toString();
+////////////////////////////////////////////////////////////////////
 
 client.login(token);
 
 client.on('message', message => {
 	// console.log(message.content);
-
-
-	// const str = message.content;
-	// const pos = str.search('!DM');
     
 	const name  = message.author;
-  
 	const date  = new Date();
 	
 	// 0-6 
@@ -42,16 +44,21 @@ client.on('message', message => {
 	var weekFac = 0.0;
 	var randomFac = 0.0;
 
+	if(DEBUG) {
+		console.log("Day: " + day);
+		console.log("Hour: " + hours);
+	}
+
 	if(day <= 4) {
 		// during the week
-		weekFac = 1;
+		weekFac = 0.7;
 	}else {
 		// weekend
-		weekFac = 0.5;
+		weekFac = 0.3;
 	}
 
 	switch(hours){
-		// 22 till 3 o'clock increase probability to go in bed
+		// 22 till 3 o'clock increase fac
 		case 22:
 			timeFac = 0.1;
 			break;
@@ -67,25 +74,28 @@ client.on('message', message => {
 		case 2: 
 			timeFac = 0.6;
 			break;
-		// 3 till 10 o'clock fac = 0.5
+		// 3 till 10 o'clock fac = 0.7
 		case 3:
 		case 10:
 			timeFac = 0.7;
 			break;
-		// 11 till 21 o'clock don't go into bed
+		// 11 till 21 o'clock don't go into bed or stop drinking
 		case 11:
 		case 21:	
 			timeFac = -2;
 			break;
 	}
 	randomFac = timeFac + weekFac;
-
-	console.log(randomFac);
+	
 	var random = getRandomInt(100) * randomFac;
 
-	console.log(random);
+	if(DEBUG) {
+		console.log('Week fac: ' + randomFac);
+		console.log('Final fac: ' + random);
+	}
 
 	switch(message.content) {
+		case '!DM Bett':
 		case '!DM bett':
 			if (random >= 50) {	// go to bed
 				message.channel.send('Geh ins Bett ' + name + '!');
@@ -93,25 +103,13 @@ client.on('message', message => {
 				message.channel.send('Zock noch eine Runde ' + name + '!');
 			}
 			break;
+		case '!DM Bett':
 		case '!DM bier':
-			if (random >= 50) {	// drink one more
-				message.channel.send('Trink noch ein Bier ' + name + '!');
-			} else if (random < 50) { // stop drinking
+			if (random >= 50) {	// stop drinking
 				message.channel.send('Trink kein Bier mehr ' + name + '!');
+			} else if (random < 50) { // drink one more
+				message.channel.send('Trink noch ein Bier ' + name + '!');
 			}
 			break;
 	}
-	// if (message.content === '!DM bett') {
-	// 	if (random >= 50) {	// go to bed
-	// 		message.channel.send('Geh ins Bett ' + name + '!');w
-	// 	} else if (random < 50) { // stay online
-	// 		message.channel.send('Zock noch eine Runde ' + name + '!');
-	// 	}
-    // } else if(message.content === '!DM bier') {
-	// 	if (random >= 50) {	// drink one more
-	// 		message.channel.send('Trink noch ein Bier ' + name + '!');
-	// 	} else if (random < 50) { // stop drinking
-	// 		message.channel.send('Trink kein Bier mehr ' + name + '!');
-	// 	}
-	// }
 });

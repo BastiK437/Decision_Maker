@@ -118,7 +118,7 @@ client.on('message', message => {
 			}
 			break;
 		default:
-			sendMsg = 'Available commands: !DM + bett, bier or runde. NOT case sensitive';
+			sendMsg = 'Available commands: bett, bier or runde. NOT case sensitive';
 			break;
 	}
 

@@ -30,7 +30,8 @@ client.login(token);
 
 client.on('message', message => {
 	// console.log(message.content);
-    
+	
+	var sendMsg;
 	const name  = message.author;
 	const date  = new Date();
 	
@@ -95,26 +96,33 @@ client.on('message', message => {
 		case '!DM Bett':
 		case '!DM bett':
 			if (random >= 50) {	// go to bed
-				message.channel.send('Geh ins Bett ' + name + '!');
+				sendMsg = 'Geh ins Bett ' + name + '!';
 			} else if (random < 50) { // stay online
-				message.channel.send('Zock noch eine Runde ' + name + '!');
+				sendMsg = 'Zock noch eine Runde ' + name + '!';
 			}
 			break;
 		case '!DM Bier':
 		case '!DM bier':
 			if (random >= 50) {	// stop drinking
-				message.channel.send('Trink kein Bier mehr ' + name + '!');
+				sendMsg = 'Trink kein Bier mehr ' + name + '!';
 			} else if (random < 50) { // drink one more
-				message.channel.send('Trink noch ein Bier ' + name + '!');
+				sendMsg = 'Trink noch ein Bier ' + name + '!';
 			}
 			break;
 		case '!DM Runde':
 		case '!DM runde':
 			if (random >= 50) {	// stop drinking
-				message.channel.send('Zock noch eine Runde ' + name + '!');
+				sendMsg = 'Zock noch eine Runde ' + name + '!';
 			} else if (random < 50) { // drink one more
-				message.channel.send('Alt + F4 ' + name + '!');
+				sendMsg = 'Alt + F4 ' + name + '!';
 			}
 			break;
+		default:
+			sendMsg = 'Available commands: !DM + bett, bier or runde. NOT case sensitive';
+			break;
+	}
+
+	if( message.content.includes('!DM') ){
+		message.channel.send(sendMsg);
 	}
 });

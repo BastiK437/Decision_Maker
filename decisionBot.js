@@ -88,8 +88,8 @@ client.on('message', message => {
 	var random = getRandomInt(100) * randomFac;
 
 	if(DEBUG) {
-		console.log('Week fac: ' + randomFac);
-		console.log('Final fac: ' + random);
+		console.log('Time fac: ' + randomFac);
+		console.log('Final random Number: ' + random);
 	}
 
 	switch(message.content) {
@@ -112,9 +112,9 @@ client.on('message', message => {
 		case '!DM Runde':
 		case '!DM runde':
 			if (random >= 50) {	// stop drinking
-				sendMsg = 'Zock noch eine Runde ' + name + '!';
-			} else if (random < 50) { // drink one more
 				sendMsg = 'Alt + F4 ' + name + '!';
+			} else if (random < 50) { // drink one more
+				sendMsg = 'Zock noch eine Runde ' + name + '!';
 			}
 			break;
 		default:

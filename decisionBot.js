@@ -67,7 +67,7 @@ client.on('message', message => {
 			case 22:
 				timeFac = 0.1;
 				break;
-			case 23: 
+			case 23:
 				timeFac = 0.2;
 				break;
 			case 0:
@@ -106,6 +106,14 @@ client.on('message', message => {
 				message.channel.send('Trink kein Bier mehr ' + name + '!');
 			} else if (random < 50) { // drink one more
 				message.channel.send('Trink noch ein Bier ' + name + '!');
+			}
+			break;
+		case '!DM Runde':
+		case '!DM runde':
+			if (random >= 50) {	// stop drinking
+				message.channel.send('Zock noch eine Runde ' + name + '!');
+			} else if (random < 50) { // drink one more
+				message.channel.send('Alt + F4 ' + name + '!');
 			}
 			break;
 	}

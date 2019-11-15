@@ -8,7 +8,7 @@ if [ $pid>0 ]
     echo "killed old bot"
 fi
 
-if [ "$1"=="start" ] # start if
+if [ "$1" == "start" ] # start if
   then
 
     # read the token from file

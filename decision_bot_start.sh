@@ -11,6 +11,7 @@ if [ $pid>0 ]
   then 
     kill $pid # kill the running instance of the bot
     echo "killed old bot"
+    reset
 fi
 
 if [ "$1" == "start" ] # start if

@@ -1,4 +1,9 @@
 #!/bin/bash
+# Autor: Bastian Krammer
+# Erstellt am: 10.11.2019
+# Github: TODO
+# Version: 1.0.0
+
 
 pid=$(ps -e | grep 'node' | awk '{print $1}')
 

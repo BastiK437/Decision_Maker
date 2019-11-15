@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 pid=$(ps -e | grep node | awk '{print $1}')
 

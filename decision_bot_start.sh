@@ -20,7 +20,7 @@ if [ "$1"=="start" ] # start if
     done < "$input"
 
     # start the bot
-    node /home/pi/Workspace/Javascript/Decision_Maker/decisionBot.js $token
+    node /home/pi/Workspace/Javascript/Decision_Maker/decisionBot.js $token &
 
   #elif [ "$1"=="kill" ]
   #  then

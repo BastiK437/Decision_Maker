@@ -1,9 +1,8 @@
 #!/bin/sh
 
 pid=$(ps -e | grep node | awk '{print $1}')
-test=5
 
-echo "$test"
+echo "$pid"
 
 if [ pid>0 ] 
   then 

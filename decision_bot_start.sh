@@ -18,18 +18,17 @@ if [ "$1" == "kill" ] # start if
     echo "killed old bot"    
 
   else
-    then
-      # read the token from file
-      input="/home/pi/Workspace/Javascript/Decision_Maker/token"
-      while IFS= read -r line
-      do
-        token=$line
-      done < "$input"
+    # read the token from file
+    input="/home/pi/Workspace/Javascript/Decision_Maker/token"
+    while IFS= read -r line
+    do
+      token=$line
+    done < "$input"
 
-      # start the bot
-      node /home/pi/Workspace/Javascript/Decision_Maker/decisionBot.js $token &
+    # start the bot
+    node /home/pi/Workspace/Javascript/Decision_Maker/decisionBot.js $token &
 
-      echo "start new bot"
+    echo "start new bot"
 
 fi # end if
 

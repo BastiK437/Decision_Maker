@@ -22,8 +22,8 @@ if [ "$1"=="start"] # start if
     # start the bot
     node /home/pi/Workspace/Javascript/Decision_Maker/decisionBot.js $token
 
-  elif [ "$1"=="kill" ]
-    then
+  #elif [ "$1"=="kill" ]
+  #  then
       # bot already got killed
 
 fi # end if

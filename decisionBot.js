@@ -60,16 +60,19 @@ client.on('message', message => {
 
 	if( hours >=3 && hours <= 10 ) {
 		timeFac = 0.7;
-	}else if( hours >= 11 && hours <= 21 ) {
-		timeFac = -2;
+	}else if( hours >= 11 && hours <= 20 ) {
+		timeFac = -0.5;
 	}else {
 		switch(hours){
 			// 22 till 3 o'clock increase fac
-			case 22:
+			case 21:
 				timeFac = 0.1;
 				break;
-			case 23:
+			case 22:
 				timeFac = 0.2;
+				break;
+			case 23:
+				timeFac = 0.3;
 				break;
 			case 0:
 				timeFac = 0.4;

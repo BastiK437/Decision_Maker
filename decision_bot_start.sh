@@ -4,12 +4,12 @@ pid=$(ps -e | grep node | awk '{print $1}')
 
 echo "$pid"
 
-if [ pid>0 ] 
+if [ $pid>0 ] 
   then 
     kill $pid # kill the running instance of the bot
 fi
 
-if [ "$1"=="start"] # start if
+if [ "$1"=="start" ] # start if
   then
 
     # read the token from file

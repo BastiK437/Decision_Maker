@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pid=$(ps -e | grep node | awk '{print $1}')
+pid=$(ps -e | grep 'node' | awk '{print $1}')
 
 if [ $pid>0 ] 
   then 

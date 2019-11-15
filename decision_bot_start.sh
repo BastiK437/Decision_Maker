@@ -6,7 +6,7 @@ echo "$pid"
 
 if [ pid>0 ] 
   then 
-    kill pid # kill the running instance of the bot
+    kill $pid # kill the running instance of the bot
 fi
 
 if [ "$1"=="start"] # start if
